@@ -1,0 +1,15 @@
+---
+import Navigation from "./navigation.astro";
+const { pageTitle } = Astro.props;
+---
+
+<header>
+    <nav>
+        <div class="nav-links">
+            <Navigation url="/" title="Home" />
+            <Navigation url="/about" title="About Me" />
+            <Navigation url="/blog" title="Blog" />
+        </div>
+    </nav>
+    <h1>{pageTitle}</h1>
+</header>
