@@ -43,7 +43,7 @@ const textCase = "uppercase";
 	</head>
 	<body>
 		<Header pageTitle={pageTitle}/>
-		
+
 		<h2>... and my new Astro site</h2>
 
 		<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
@@ -66,5 +66,8 @@ const textCase = "uppercase";
 		{finished && <p>I have finished Learning everything</p>}
 		{goal === 3 ? <p>My Goal  is to finish in 3 days</p> : <p>My goal is not 3 days!</p>}
 		<Footer />
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
