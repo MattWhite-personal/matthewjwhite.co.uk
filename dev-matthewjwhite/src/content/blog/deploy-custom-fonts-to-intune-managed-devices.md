@@ -1,18 +1,18 @@
 ---
 title: "Deploy custom fonts to Intune managed devices"
 pubDate: "2019-06-13"
-categories: 
+categories:
   - "intune"
   - "it"
-tags: 
+tags:
   - "fonts"
   - "intune"
   - "modern-workplace"
   - "powershell"
   - "scripting"
   - "windows-10"
-heroImage: '/blog-placeholder-1.jpg'
-description: 'Hello World'
+heroImage: "/blog-placeholder-1.jpg"
+description: "Hello World"
 ---
 
 As part of a recent piece of work deploying a Modern Workplace solution for a customer, I was asked how could we deploy their corporate fonts to all machines so that corporate branding was maintained across documents that were produced in the organisation. Looking online there are several scripts that allow you to deploy an individual font ([Deploying an embedded file (FONT) in a Powershell script through Intune MDM](https://www.lieben.nu/liebensraum/2019/01/deploying-an-embedded-file-font-in-a-powershell-script-through-intune-mdm/)) however I had two font families with a total of 15 fonts that needed to be deployed. Encoding these files into Base64 would hit the limit of the PowerShell scripts that Intune Management Extension could execute so I had to look for an alternative.
@@ -31,16 +31,16 @@ The install and uninstall process was quickly solved when I found this blog for 
 elseif ((Test-Path $path -PathType Container) -eq $true)
 {
     $bErrorOccured = $false
-						
+
     foreach ($file in (Get-Childitem $path)) {
 
         if ($hashFontFileTypes.ContainsKey($file.Extension)) {
             $retVal = Add-SingleFont (Join-Path $path $file.Name)
             if ($retVal -ne 0) {
                 $bErrorOccured = $true
-																  
+
             }
-																		   
+
         }
         else {
             "`'$(Join-Path $path $file.Name)`' not a valid font file type"
@@ -48,8 +48,8 @@ elseif ((Test-Path $path -PathType Container) -eq $true)
         }
     }
 
-    If ($bErrorOccured -eq $true) { 
-        exit 1 
+    If ($bErrorOccured -eq $true) {
+        exit 1
     }
     else {
         exit 0
