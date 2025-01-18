@@ -6,7 +6,11 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/violet-virgo/" # Location of package manifests
+    directory: "/violet-virgo/" # Original Astro Learning guide
+    schedule:
+      interval: "weekly"
+   - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/dev-matthewjwhite/" # Dev Test website work
     schedule:
       interval: "weekly"
   - package-ecosystem: github-actions
