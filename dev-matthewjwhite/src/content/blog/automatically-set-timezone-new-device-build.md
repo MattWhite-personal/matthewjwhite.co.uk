@@ -36,7 +36,7 @@ The script will execute the following in sequence:
 
 The only variable you should need to change in the script are the two lines that will contain your API keys helpfully called **ipStackAPIKey** and **bingMapsAPIKey**.
 
-You can choose now to either save the file as a script to run once in Intune, or, incorporate this into Michael's MSI. If you wanted the script to run every time the machine starts up, you could adapt the Logon script from my recent post on [Mapping legacy files shares for Azure AD joined devices](/mapping-legacy-file-shares).
+You can choose now to either save the file as a script to run once in Intune, or, incorporate this into Michael's MSI. If you wanted the script to run every time the machine starts up, you could adapt the Logon script from my recent post on [Mapping legacy files shares for Azure AD joined devices](/blog/mapping-legacy-file-shares).
 
 ```powershell
 <#
