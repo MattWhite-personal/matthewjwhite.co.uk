@@ -1,10 +1,10 @@
 ---
 title: "JunOS: Logout stale edit sessions"
 pubDate: "2013-02-28"
-categories: 
+categories:
   - "it"
   - "networking"
-tags: 
+tags:
   - "juniper"
   - "junos"
 heroImage: "/blog-placeholder-1.jpg"
