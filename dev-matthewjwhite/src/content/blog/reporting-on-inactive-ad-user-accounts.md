@@ -1,9 +1,9 @@
 ---
 title: "Reporting on inactive AD user accounts"
 pubDate: "2015-10-27"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "active-directory"
   - "computer"
   - "powershell"
