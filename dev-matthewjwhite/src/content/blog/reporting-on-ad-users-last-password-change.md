@@ -1,9 +1,9 @@
 ---
 title: "Reporting on AD users last password change"
 pubDate: "2015-10-27"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "active-directory"
   - "computer"
   - "powershell"
