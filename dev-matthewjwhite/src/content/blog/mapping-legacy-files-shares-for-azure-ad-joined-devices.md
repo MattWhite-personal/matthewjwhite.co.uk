@@ -1,10 +1,10 @@
 ---
 title: "Mapping legacy files shares for Azure AD joined devices"
 pubDate: "2019-04-07"
-categories: 
+categories:
   - "intune"
   - "it"
-tags: 
+tags:
   - "drive-mapping"
   - "intune"
   - "microsoft"
@@ -12,8 +12,8 @@ tags:
   - "script"
   - "windows"
   - "windows-10"
-heroImage: '/blog-placeholder-1.jpg'
-description: 'Hello World'
+heroImage: "/blog-placeholder-1.jpg"
+description: "Hello World"
 ---
 
 More and more of my customers are moving their devices from a traditional IT model to a Modern Desktop build directly in Azure AD, managing devices via Microsoft Intune rather than Group Policy or System Center Configuration Manager. The move to this modern approach of delivering IT services usually sits alongside of moving the organisation's unstructured file data to OneDrive and SharePoint online which is the logical place to store this data instead of sat on a file server in an office or datacentre.
@@ -158,74 +158,74 @@ Next we create the connection to Graph API. I use the code from Lee's blog earli
 ```powershell
 # Add required assemblies
 Add-Type -AssemblyName System.Web, PresentationFramework, PresentationCore
- 
+
 # Scope - Needs to include all permisions required separated with a space
 $scope = "User.Read.All Group.Read.All" # This is just an example set of permissions
- 
+
 # Random State - state is included in response, if you want to verify response is valid
 $state = Get-Random
- 
-# Encode scope to fit inside query string 
+
+# Encode scope to fit inside query string
 $scopeEncoded = [System.Web.HttpUtility]::UrlEncode($scope)
- 
+
 # Redirect URI (encode it to fit inside query string)
 $redirectUriEncoded = [System.Web.HttpUtility]::UrlEncode($redirectUri)
- 
+
 # Construct URI
 $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/authorize?client_id=$clientId&response_type=code&redirect_uri=$redirectUriEncoded&response_mode=query&scope=$scopeEncoded&state=$state"
- 
+
 # Create Window for User Sign-In
 $windowProperty = @{
     Width  = 500
     Height = 700
 }
- 
+
 $signInWindow = New-Object System.Windows.Window -Property $windowProperty
-    
+
 # Create WebBrowser for Window
 $browserProperty = @{
     Width  = 480
     Height = 680
 }
- 
+
 $signInBrowser = New-Object System.Windows.Controls.WebBrowser -Property $browserProperty
- 
+
 # Navigate Browser to sign-in page
 $signInBrowser.navigate($uri)
-    
+
 # Create a condition to check after each page load
 $pageLoaded = {
- 
+
     # Once a URL contains "code=*", close the Window
     if ($signInBrowser.Source -match "code=[^&]*") {
- 
+
         # With the form closed and complete with the code, parse the query string
- 
+
         $urlQueryString = [System.Uri]($signInBrowser.Source).Query
         $script:urlQueryValues = [System.Web.HttpUtility]::ParseQueryString($urlQueryString)
- 
+
         $signInWindow.Close()
- 
+
     }
 }
- 
+
 # Add condition to document completed
 $signInBrowser.Add_LoadCompleted($pageLoaded)
- 
+
 # Show Window
 $signInWindow.AddChild($signInBrowser)
 $signInWindow.ShowDialog()
- 
+
 # Extract code from query string
 $authCode = $script:urlQueryValues.GetValues(($script:urlQueryValues.keys | Where-Object { $_ -eq "code" }))
- 
+
 if ($authCode) {
- 
+
     # With Auth Code, start getting token
- 
+
     # Construct URI
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
- 
+
     # Construct Body
     $body = @{
         client_id    = $clientId
@@ -234,18 +234,18 @@ if ($authCode) {
         redirect_uri = $redirectUri
         grant_type   = "authorization_code"
     }
- 
+
     # Get OAuth 2.0 Token
     $tokenRequest = Invoke-WebRequest -Method Post -Uri $uri -ContentType "application/x-www-form-urlencoded" -Body $body
- 
+
     # Access Token
     $token = ($tokenRequest.Content | ConvertFrom-Json).access_token
- 
+
 }
 else {
- 
+
     Write-Error "Unable to obtain Auth Code!"
- 
+
 }
 ```
 
@@ -254,8 +254,8 @@ Now we need to use the token we generated and query the Graph API to get the lis
 ```powershell
 $uri = "https://graph.microsoft.com/v1.0/me/memberOf"
 $method = "GET"
- 
-# Run Graph API query 
+
+# Run Graph API query
 $query = Invoke-WebRequest -Method $method -Uri $uri -ContentType "application/json" -Headers @{Authorization = "Bearer $token"} -ErrorAction Stop
 $output = ConvertFrom-Json $query.Content
 $usergroups = @()
@@ -284,7 +284,7 @@ do {
             Throw "Exceeded maximum numbers of retries ($maxRetries) to resolve dns name ($dnsDomainName)"
         }
     }
-} 
+}
 while( -not ($Connected))
 
 Write-Output $usergroups
@@ -453,77 +453,77 @@ $Drivemappings = @( #Create a line below for each drive mapping that needs to be
     @{"includeSecurityGroup" = "FOLDERPERM_FULL-ACCESS" ; "excludeSecurityGroup" = "" ; "driveLetter" = "T" ; "UNCPath" = "\\skunklab.co.uk\dfs\shared"},
     @{"includeSecurityGroup" = "FOLDERPERM_ALL-STAFF" ; "excludeSecurityGroup" = "FOLDERPERM_FULL-ACCESS" ; "driveLetter" = "T" ; "UNCPath" = "\\skunklab.co.uk\dfs\shared\sharedaccess"}
 )
- 
+
 # Add required assemblies
 Add-Type -AssemblyName System.Web, PresentationFramework, PresentationCore
- 
+
 # Scope - Needs to include all permisions required separated with a space
 $scope = "User.Read.All Group.Read.All" # This is just an example set of permissions
- 
+
 # Random State - state is included in response, if you want to verify response is valid
 $state = Get-Random
- 
-# Encode scope to fit inside query string 
+
+# Encode scope to fit inside query string
 $scopeEncoded = [System.Web.HttpUtility]::UrlEncode($scope)
- 
+
 # Redirect URI (encode it to fit inside query string)
 $redirectUriEncoded = [System.Web.HttpUtility]::UrlEncode($redirectUri)
- 
+
 # Construct URI
 $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/authorize?client_id=$clientId&response_type=code&redirect_uri=$redirectUriEncoded&response_mode=query&scope=$scopeEncoded&state=$state"
- 
+
 # Create Window for User Sign-In
 $windowProperty = @{
     Width  = 500
     Height = 700
 }
- 
+
 $signInWindow = New-Object System.Windows.Window -Property $windowProperty
-    
+
 # Create WebBrowser for Window
 $browserProperty = @{
     Width  = 480
     Height = 680
 }
- 
+
 $signInBrowser = New-Object System.Windows.Controls.WebBrowser -Property $browserProperty
- 
+
 # Navigate Browser to sign-in page
 $signInBrowser.navigate($uri)
-    
+
 # Create a condition to check after each page load
 $pageLoaded = {
- 
+
     # Once a URL contains "code=*", close the Window
     if ($signInBrowser.Source -match "code=[^&]*") {
- 
+
         # With the form closed and complete with the code, parse the query string
- 
+
         $urlQueryString = [System.Uri]($signInBrowser.Source).Query
         $script:urlQueryValues = [System.Web.HttpUtility]::ParseQueryString($urlQueryString)
- 
+
         $signInWindow.Close()
- 
+
     }
 }
- 
+
 # Add condition to document completed
 $signInBrowser.Add_LoadCompleted($pageLoaded)
- 
+
 # Show Window
 $signInWindow.AddChild($signInBrowser)
 $signInWindow.ShowDialog()
- 
+
 # Extract code from query string
 $authCode = $script:urlQueryValues.GetValues(($script:urlQueryValues.keys | Where-Object { $_ -eq "code" }))
- 
+
 if ($authCode) {
- 
+
     # With Auth Code, start getting token
- 
+
     # Construct URI
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
- 
+
     # Construct Body
     $body = @{
         client_id    = $clientId
@@ -532,35 +532,35 @@ if ($authCode) {
         redirect_uri = $redirectUri
         grant_type   = "authorization_code"
     }
- 
+
     # Get OAuth 2.0 Token
     $tokenRequest = Invoke-WebRequest -Method Post -Uri $uri -ContentType "application/x-www-form-urlencoded" -Body $body
- 
+
     # Access Token
     $token = ($tokenRequest.Content | ConvertFrom-Json).access_token
- 
+
 }
 else {
- 
+
     Write-Error "Unable to obtain Auth Code!"
- 
+
 }
- 
+
 ####
 # Run Graph API Query to get group membership
 ####
- 
+
 $uri = "https://graph.microsoft.com/v1.0/me/memberOf"
 $method = "GET"
- 
-# Run Graph API query 
+
+# Run Graph API query
 $query = Invoke-WebRequest -Method $method -Uri $uri -ContentType "application/json" -Headers @{Authorization = "Bearer $token"} -ErrorAction Stop
 $output = ConvertFrom-Json $query.Content
 $usergroups = @()
 foreach ($group in $output.value) {
     $usergroups += $group.displayName
 }
- 
+
 # Loop the Drive Mappings and check group membership
 
 $connected=$false
@@ -580,7 +580,7 @@ do {
             Throw "Exceeded maximum numbers of retries ($maxRetries) to resolve dns name ($dnsDomainName)"
         }
     }
-} 
+}
 while( -not ($Connected))
 
 Write-Output $usergroups

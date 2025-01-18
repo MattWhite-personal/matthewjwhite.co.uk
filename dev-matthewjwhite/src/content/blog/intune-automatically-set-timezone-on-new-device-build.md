@@ -1,17 +1,17 @@
 ---
 title: "Intune: Automatically set timezone on new device build"
 pubDate: "2019-04-18"
-categories: 
+categories:
   - "intune"
   - "it"
-tags: 
+tags:
   - "computer"
   - "intune"
   - "microsoft"
   - "powershell"
   - "script"
-heroImage: '/blog-placeholder-1.jpg'
-description: 'Hello World'
+heroImage: "/blog-placeholder-1.jpg"
+description: "Hello World"
 ---
 
 In Michael Niehaus' recent blog on [Configuring Windows 10 defaults via Windows Autopilot using an MSI](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Configuring-Windows-10-defaults-via-Windows-Autopilot-using-an/ba-p/457063) he talked about the ability to set the Time Zone of the device based on a variable in the [Config.xml](https://github.com/mtniehaus/AutopilotBranding/blob/master/AutopilotBranding/Config.xml) file. One of the comments on the blog asked whether it would be possible to set the time zone based on where the device was at the time of setup rather than based on an attribute in the file.
@@ -20,7 +20,7 @@ Whilst Windows 10 has a feature to detect the time zone automatically I have fou
 
 1. [https://ipstack.com](https://ipstack.com) - this will map the public IP address to a geo-location including coordinates, you get access to 10,000 queries a month for free
 
-3. [Bing Maps API](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bingmaps.mapapis) - this will return the correct time zone in a valid Windows format that can be used in the script to set the time zone on the device, there is a free tier here that also gives you 10,000 queries per month without charge
+2. [Bing Maps API](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bingmaps.mapapis) - this will return the correct time zone in a valid Windows format that can be used in the script to set the time zone on the device, there is a free tier here that also gives you 10,000 queries per month without charge
 
 ## The Script
 
@@ -28,11 +28,11 @@ The script will execute the following in sequence:
 
 1. Attempt to get the coordinates of the IP address you are using via the IPStack API
 
-3. If successful, attempt to find the time zone from the Bing Maps API
+2. If successful, attempt to find the time zone from the Bing Maps API
 
-5. Compare the value of the current time zone on the machine with the response from the Bing Maps API
+3. Compare the value of the current time zone on the machine with the response from the Bing Maps API
 
-7. Change the time zone on the machine
+4. Change the time zone on the machine
 
 The only variable you should need to change in the script are the two lines that will contain your API keys helpfully called **ipStackAPIKey** and **bingMapsAPIKey**.
 
