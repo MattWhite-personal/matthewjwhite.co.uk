@@ -1,9 +1,9 @@
 ---
 title: "Configuring Juniper SSG Firewalls to failover between Internet connections"
 pubDate: "2011-11-07"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "failover"
   - "firewall"
   - "internet"

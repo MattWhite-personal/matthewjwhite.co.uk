@@ -1,10 +1,10 @@
 ---
 title: "Using OSPF to maintain site-site VPN across multiple WAN links"
 pubDate: "2014-12-29"
-categories: 
+categories:
   - "it"
   - "networking"
-tags: 
+tags:
   - "juniper"
   - "ospf"
   - "screenos"
