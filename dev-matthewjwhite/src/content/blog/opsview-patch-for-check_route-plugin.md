@@ -1,10 +1,10 @@
 ---
 title: "Opsview - patch for check_route plugin"
 pubDate: "2011-12-01"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "monitoring"
   - "opsview"
   - "route"
@@ -14,7 +14,7 @@ heroImage: "/blog-monitoring-header.png"
 description: ""
 ---
 
-I was playing around with the check\_route plugin and noticed a few issues with it not running. In order to get it to work on my Opsview boxes I had to install a new package, change some settings on the traceroute program and then make a patch in the script itself.
+I was playing around with the check_route plugin and noticed a few issues with it not running. In order to get it to work on my Opsview boxes I had to install a new package, change some settings on the traceroute program and then make a patch in the script itself.
 
 First thing you need to do is download the traceroute package if its not already installed
 
@@ -44,7 +44,7 @@ ROUTE UNKNOWN - Cannot cope with line 'traceroute to 8.8.8.8 (8.8.8.8), 30 hops 
 
 To get around this you need the plugin to ignore the first line of the output from the traceroute which can be done with the following patch
 
-[http://snipt.net/mattywhi/opsview-check\_route-diff/](http://snipt.net/mattywhi/opsview-check_route-diff/)
+[http://snipt.net/mattywhi/opsview-check_route-diff/](http://snipt.net/mattywhi/opsview-check_route-diff/)
 
 Now the script runs as expected and you get the following output
 

@@ -1,9 +1,9 @@
 ---
 title: "RSA Authentication Manager 7.1 upgrade issue"
 pubDate: "2011-08-31"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "password"
   - "rsa"
 heroImage: "/blog-data-backup.png"

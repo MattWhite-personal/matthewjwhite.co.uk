@@ -1,10 +1,10 @@
 ---
 title: "Monitoring HP ESXi Hosts using Insight Remote Support"
 pubDate: "2011-10-23"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "esx"
   - "esxi"
   - "hp"

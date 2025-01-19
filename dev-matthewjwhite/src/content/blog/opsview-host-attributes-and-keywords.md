@@ -1,10 +1,10 @@
 ---
 title: "Opsview: Host Attributes and Keywords"
 pubDate: "2010-09-02"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "abstraction"
   - "attributes"
   - "monitoring"

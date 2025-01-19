@@ -1,10 +1,10 @@
 ---
 title: "Backup Exec 2012 - One time Exchange Backup doesnt flush transaction logs"
 pubDate: "2012-06-07"
-categories: 
+categories:
   - "backups"
   - "it"
-tags: 
+tags:
   - "backup-exec"
   - "exchange-2010"
   - "symantec"

@@ -1,10 +1,10 @@
 ---
 title: "Nagios/Opsview: Check Symantec AV Definitions"
 pubDate: "2010-03-01"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "anti-virus"
   - "nagios"
   - "nrpe"
@@ -22,7 +22,7 @@ check_av.vbs(51, 1) Microsoft VBScript runtime error: Type mismatch: 'strValue'
 
 Initially I thought this could be a change due to the new installs being Symantec Endpoint Protection compared to the previous times I had implemented this using Symantec Anti-Virus 10.x but the SEP installs on the 32-bit systems were working fine however the 64-bit versions were not.
 
-A quick look in the registry showed me that the value that is read by the script is not there on the 64-bit version and has been moved to another location (HKEY\_LOCAL\_MACHINESOFTWAREWow6432NodeSymantecSharedDefsDefWatch). I sat down with the script and quickly wrote in some extra code that would allow me to change the search path depending on the Operating System Architecture. I also added in some more error checking so if the key didnt exist then rather than exiting with an OK status it returns an UNKNOWN status and a relevant error message.
+A quick look in the registry showed me that the value that is read by the script is not there on the 64-bit version and has been moved to another location (HKEY_LOCAL_MACHINESOFTWAREWow6432NodeSymantecSharedDefsDefWatch). I sat down with the script and quickly wrote in some extra code that would allow me to change the search path depending on the Operating System Architecture. I also added in some more error checking so if the key didnt exist then rather than exiting with an OK status it returns an UNKNOWN status and a relevant error message.
 
 As I use [NSClient++](http://www.nsclient.org) to enable me to monitor my Windows servers I simply save the script to the NSClient++scripts folder and add the following line into my NSCI.ini under \[NRPE Handlers\]
 
@@ -30,7 +30,7 @@ As I use [NSClient++](http://www.nsclient.org) to enable me to monitor my Window
 check_av=cscript.exe //NoLogo scriptscheck_av.vbs /W:$ARG1$ /c:$ARG2$
 ```
 
-Then from within Nagios or Opsview define the command for check\_nrpe
+Then from within Nagios or Opsview define the command for check_nrpe
 
 `check_nrpe -H $HOSTADDRESS$ -c check_av -a 2 3`
 

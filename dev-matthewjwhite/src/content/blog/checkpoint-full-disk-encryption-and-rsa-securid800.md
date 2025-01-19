@@ -1,9 +1,9 @@
 ---
 title: "CheckPoint Full Disk Encryption and RSA SecurID800"
 pubDate: "2011-07-07"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "certificates"
   - "check-point"
   - "full-disk-encryption"

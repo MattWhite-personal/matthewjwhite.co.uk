@@ -1,10 +1,10 @@
 ---
 title: "Check E-Trust Antivirus Definitions"
 pubDate: "2010-03-15"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "anti-virus"
   - "ca"
   - "nagios"
