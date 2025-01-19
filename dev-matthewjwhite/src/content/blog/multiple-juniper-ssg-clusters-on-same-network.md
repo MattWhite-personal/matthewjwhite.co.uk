@@ -1,9 +1,9 @@
 ---
 title: "Multiple Juniper SSG clusters on same network"
 pubDate: "2011-06-08"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "arp"
   - "firewall"
   - "juniper"

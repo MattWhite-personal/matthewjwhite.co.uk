@@ -1,10 +1,10 @@
 ---
 title: "PowerShell software installation wrapper for Intune"
 pubDate: "2017-12-18"
-categories: 
+categories:
   - "intune"
   - "it"
-tags: 
+tags:
   - "installer"
   - "intune"
   - "microsoft"
@@ -52,7 +52,7 @@ if(!(Test-Path $installCheck)) {
      }
      catch {
          Throw "Failed to install Package"
-     }       
+     }
 }
 ```
 

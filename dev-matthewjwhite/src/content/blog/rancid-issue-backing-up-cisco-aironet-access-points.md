@@ -1,9 +1,9 @@
 ---
 title: "RANCID: Issue backing up Cisco Aironet access points"
 pubDate: "2011-10-18"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "access-point"
   - "backup"
   - "cisco"
@@ -25,7 +25,7 @@ add method ip_address {ssh}
 add noenable ip_address 1
 ```
 
-when I ran bin/clogin ip\_address the device would login and get me to the enable prompt as expected but when run as part of rancid\_run nothing was coming back for the config. After a bit of reading and searching the solution was simple enough and it wasnt a problem with RANCID or the Aironets....
+when I ran bin/clogin ip_address the device would login and get me to the enable prompt as expected but when run as part of rancid_run nothing was coming back for the config. After a bit of reading and searching the solution was simple enough and it wasnt a problem with RANCID or the Aironets....
 
 ```
 add autoenable ip_address 1

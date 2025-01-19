@@ -1,10 +1,10 @@
 ---
 title: "ESXi enabling SNMP"
 pubDate: "2010-02-10"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "dell"
   - "esx"
   - "hp"
@@ -16,7 +16,7 @@ description: ""
 
 Last night I wrote an article about how to monitor the health of an ESXi server ([link here](http://www.matthewjwhite.co.uk/blog/2010/02/09/monitoring-esxi-server-health-using-nagiosopsview/ "monitoring-esxi-server-health-using-nagiosopsview")) and I wanted to explain a bit more about my findings with SNMP on an ESXi host.
 
-My goal with the monitoring was to use the check\_dell and check\_hp commands I have found for Nagios/Opsview to monitor the hardware that ESX is running on. The ESXi installs I am working with are using the Dell and HP management agents installed so I thought that everything would work out of the box and enabling SNMP would let me query the different aspects of the hardware.
+My goal with the monitoring was to use the check_dell and check_hp commands I have found for Nagios/Opsview to monitor the hardware that ESX is running on. The ESXi installs I am working with are using the Dell and HP management agents installed so I thought that everything would work out of the box and enabling SNMP would let me query the different aspects of the hardware.
 
 The official line from VMWare was that SNMP is not enabled on ESXi and with no console cant be enabled. I knew however, having read a recent post on the [TechHead blog](http://www.techhead.co.uk) ([link here](http://www.techhead.co.uk/how-to-view-your-vmware-esxi-hosts-system-log-config-and-datastore-via-a-web-browser)) that you could see the snmp.xml file and this shows that it is not enabled which made me think it must be possible to enable it. I was right.
 

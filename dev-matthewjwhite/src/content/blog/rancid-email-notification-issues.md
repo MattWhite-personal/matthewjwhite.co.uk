@@ -1,9 +1,9 @@
 ---
 title: "Rancid email notification issues"
 pubDate: "2010-08-05"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "cisco"
   - "config"
   - "monitoring"
@@ -19,7 +19,7 @@ Just spent a few days getting RANCID setup on one of my monitoring servers to ba
 
 Scouring the Internet I couldnt find what I had missed. Postfix was setup correctly and I could use the aliases I setup in /etc/alises if i "telnet localhost 25" and mail was delivered. In the end looking at the update logs I could see a line saying it couldnt find sendmail.
 
-A quick look at racnid\_control and I updated the lines that referenced sendmail to include a full path to /usr/sbin/sendmail and low and behold my inbox was full of config changes this morning.
+A quick look at racnid_control and I updated the lines that referenced sendmail to include a full path to /usr/sbin/sendmail and low and behold my inbox was full of config changes this morning.
 
 I'm sure that if I was able to get the money to buy Opsview Enterprise I would make full use of the RANCID module within this but for the moment this works well enough for me.
 

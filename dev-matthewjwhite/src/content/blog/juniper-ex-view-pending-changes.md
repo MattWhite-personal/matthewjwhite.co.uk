@@ -1,10 +1,10 @@
 ---
 title: "Juniper EX view pending changes"
 pubDate: "2012-04-13"
-categories: 
+categories:
   - "it"
   - "networking"
-tags: 
+tags:
   - "ex"
   - "juniper"
   - "switch"
