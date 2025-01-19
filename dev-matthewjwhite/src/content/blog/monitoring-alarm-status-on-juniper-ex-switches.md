@@ -1,11 +1,11 @@
 ---
 title: "Monitoring Alarm Status on Juniper EX Switches"
 pubDate: "2012-08-16"
-categories: 
+categories:
   - "it"
   - "monitoring"
   - "networking"
-tags: 
+tags:
   - "juniper"
   - "monitoring"
   - "opsview"
@@ -20,19 +20,19 @@ Having a look at the SNMP OID tree for the EX switches I came across the followi
 
 [http://www.oidview.com/mibs/2636/JUNIPER-ALARM-MIB.html](http://www.oidview.com/mibs/2636/JUNIPER-ALARM-MIB.html)
 
-| Object Name	| Object Identifier |
-|-------------|-------------------|
-|![jnxYellowAlarmState](/images/tree.gif) jnxAlarmsjnxAlarms	| 1.3.6.1.4.1.2636.3.4 |
-|![jnxYellowAlarmState](/images/object.gif)jnxCraftAlarmsjnxCraftAlarms | 1.3.6.1.4.1.2636.3.4.2 |
-|![jnxYellowAlarmState](/images/object.gif)jnxAlarmRelayModejnxAlarmRelayMode | 1.3.6.1.4.1.2636.3.4.2.1 |
-|![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmsjnxYellowAlarms | 1.3.6.1.4.1.2636.3.4.2.2 |
-|![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmStatejnxYellowAlarmState | 1.3.6.1.4.1.2636.3.4.2.2.1 |
-|![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmCountjnxYellowAlarmCount | 1.3.6.1.4.1.2636.3.4.2.2.2 |
-|![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmLastChangejnxYellowAlarmLastChange | 1.3.6.1.4.1.2636.3.4.2.2.3 |
-|![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmsjnxRedAlarms | 1.3.6.1.4.1.2636.3.4.2.3 |
-|![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmStatejnxRedAlarmState | 1.3.6.1.4.1.2636.3.4.2.3.1 |
-|![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmCountjnxRedAlarmCount | 1.3.6.1.4.1.2636.3.4.2.3.2 |
-|![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmLastChangejnxRedAlarmLastChange | 1.3.6.1.4.1.2636.3.4.2.3.3 |
+| Object Name                                                                                | Object Identifier          |
+| ------------------------------------------------------------------------------------------ | -------------------------- |
+| ![jnxYellowAlarmState](/images/tree.gif) jnxAlarmsjnxAlarms                                | 1.3.6.1.4.1.2636.3.4       |
+| ![jnxYellowAlarmState](/images/object.gif)jnxCraftAlarmsjnxCraftAlarms                     | 1.3.6.1.4.1.2636.3.4.2     |
+| ![jnxYellowAlarmState](/images/object.gif)jnxAlarmRelayModejnxAlarmRelayMode               | 1.3.6.1.4.1.2636.3.4.2.1   |
+| ![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmsjnxYellowAlarms                   | 1.3.6.1.4.1.2636.3.4.2.2   |
+| ![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmStatejnxYellowAlarmState           | 1.3.6.1.4.1.2636.3.4.2.2.1 |
+| ![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmCountjnxYellowAlarmCount           | 1.3.6.1.4.1.2636.3.4.2.2.2 |
+| ![jnxYellowAlarmState](/images/object.gif)jnxYellowAlarmLastChangejnxYellowAlarmLastChange | 1.3.6.1.4.1.2636.3.4.2.2.3 |
+| ![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmsjnxRedAlarms                         | 1.3.6.1.4.1.2636.3.4.2.3   |
+| ![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmStatejnxRedAlarmState                 | 1.3.6.1.4.1.2636.3.4.2.3.1 |
+| ![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmCountjnxRedAlarmCount                 | 1.3.6.1.4.1.2636.3.4.2.3.2 |
+| ![jnxYellowAlarmState](/images/object.gif)jnxRedAlarmLastChangejnxRedAlarmLastChange       | 1.3.6.1.4.1.2636.3.4.2.3.3 |
 
 I have used the jnxRedAlarmCount and jnxYellowAlarmCount oid values as basic Opsview SNMP Service Checks to give me an initial overview but in the long term will be looking to combine this into a full service check script that can be used to check a number of different things.
 

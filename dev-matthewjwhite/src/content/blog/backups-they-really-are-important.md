@@ -1,10 +1,10 @@
 ---
 title: "Backups - They really are important"
 pubDate: "2009-06-14"
-categories: 
+categories:
   - "backups"
   - "it"
-tags: 
+tags:
   - "backup"
   - "disaster-recovery"
   - "dr"

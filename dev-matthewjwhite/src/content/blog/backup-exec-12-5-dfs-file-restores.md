@@ -1,10 +1,10 @@
 ---
 title: "Backup Exec 12.5 DFS File Restores"
 pubDate: "2009-10-16"
-categories: 
+categories:
   - "backups"
   - "it"
-tags: 
+tags:
   - "backup"
   - "backup-exec"
   - "dfs"
