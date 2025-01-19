@@ -1,10 +1,10 @@
 ---
 title: "Monitoring ESXi Server health using Nagios/Opsview"
 pubDate: "2010-02-09"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "dell"
   - "esx"
   - "esxi"
@@ -40,7 +40,7 @@ opsview@LON-SVR-MON1:~$ cd pywbem-0.7.0/
 opsview@LON-SVR-MON1:~/pywbem-0.7.0$ sudo python setup.py install
 ```
 
-Next you need to download the check\_esx\_wbem.py script (http://communities.vmware.com/docs/DOC-7170) and place it in your libexec folder
+Next you need to download the check_esx_wbem.py script (http://communities.vmware.com/docs/DOC-7170) and place it in your libexec folder
 
 ```bash
 opsview@LON-SVR-MON1:~/pywbem-0.7.0$ cd /usr/local/nagios/libexec/

@@ -1,10 +1,10 @@
 ---
 title: "check_equallogic volumes bug"
 pubDate: "2011-10-12"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "dell"
   - "equallogic"
   - "nagios"
@@ -15,7 +15,7 @@ heroImage: "/blog-monitoring-header.png"
 description: ""
 ---
 
-I have been playing arond with the [check\_equallogic](http://www.claudiokuenzler.com/nagios-plugins/check_equallogic.php) Nagios plugin written by Claudio Kuenzler ([http://www.claudiokuenzler.com](http://www.claudiokuenzler.com)) to monitor some performance and utilisation values for a client and I came across a bug with the code in the latest release which I thought I would share.
+I have been playing arond with the [check_equallogic](http://www.claudiokuenzler.com/nagios-plugins/check_equallogic.php) Nagios plugin written by Claudio Kuenzler ([http://www.claudiokuenzler.com](http://www.claudiokuenzler.com)) to monitor some performance and utilisation values for a client and I came across a bug with the code in the latest release which I thought I would share.
 
 The latest release allows you to monitor the size of a single volume as well as a single check to monitor all volumes. I setup the check in Opsview as normal and then proceeded to configure the Host Attributes for the SAN host for each volume on the SAN (there were 75 volumes to monitor). Having added all the checks and reloading Opsview I started to see a large number of OK checks for the volumes but also a number of UNKNOWN outputs from the plugin. Closer inspection showed that when you have two volumes that have the similar names (e.g. BES01-D and DR-BES01-D) the more generic name, BES01-D in this example will match for both volumes and the script will return an unknown value. The DR-BES01-D volume returned the correct stats as the volume name only matched one entry.
 

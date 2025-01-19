@@ -1,9 +1,9 @@
 ---
 title: "Symantec Endpoint Protection Manager 12.1 configuration"
 pubDate: "2012-06-13"
-categories: 
+categories:
   - "it"
-tags: 
+tags:
   - "antivirus"
   - "endpoint-protection"
   - "symantec"

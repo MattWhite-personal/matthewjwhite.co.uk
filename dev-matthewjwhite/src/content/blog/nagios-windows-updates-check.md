@@ -1,10 +1,10 @@
 ---
 title: "Nagios Windows Updates check"
 pubDate: "2011-07-19"
-categories: 
+categories:
   - "it"
   - "monitoring"
-tags: 
+tags:
   - "microsoft"
   - "monitoring"
   - "nagios"

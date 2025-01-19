@@ -1,9 +1,9 @@
 ---
 title: "Asymmetric routing with Cisco ASA firewalls"
 pubDate: "2012-02-13"
-categories: 
+categories:
   - "networking"
-tags: 
+tags:
   - "asa"
   - "cisco"
   - "routing"
