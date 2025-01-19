@@ -9,8 +9,8 @@ tags:
   - "internet"
   - "juniper"
   - "ssg"
-heroImage: "/blog-placeholder-1.jpg"
-description: "Hello World"
+heroImage: "/blog-network-header.png"
+description: "The blog post provides a detailed guide on setting up failover for Juniper SSG firewalls. It explains how to configure the firewall to use track-IP for monitoring IP addresses and automatically switch between primary and secondary internet connections in case of failure. The post covers the steps to move interfaces into separate virtual routers, set up default routes, and ensure internal users can route through both connections. This setup helps maintain internet connectivity and enhances network reliability"
 ---
 
 I have been working with the Netscreen, and then Juniper firewall products for the past five years and am still learning new and interesting features they offer. One thing that I have been configuring more and more recently are secondary Internet connections and fail-over between them for clients. This post runs through the steps required to configure an SSG firewall to use track-IP to monitor IP addresses on the Internet and then automatically fail-over and fail-back an Internet connection.

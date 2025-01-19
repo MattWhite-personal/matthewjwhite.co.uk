@@ -9,7 +9,7 @@ tags:
   - "ospf"
   - "screenos"
   - "vpn"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/blog-network-header.png"
 description: "Hello World"
 ---
 

@@ -96,9 +96,19 @@ const posts = (await getCollection("blog")).sort(
 							// Use the new function to generate the desired path
 							const { path } = getBlogParams(post);
 							return (
+								//<li>
+							//		<a href={`${path}/`}>
+						//				<h2 class="title">{post.data.title}</h2>
+					//				</a>
+				//				</li>
+
 								<li>
 									<a href={`${path}/`}>
-										<h2 class="title">{post.data.title}</h2>
+										<img width={720} height={360} src={post.data.heroImage} alt="" />
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
 									</a>
 								</li>
 							);

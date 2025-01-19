@@ -9,7 +9,7 @@ tags:
   - "powershell"
   - "reporting"
   - "script"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/blog-intune-tech.png"
 description: "Hello World"
 ---
 
