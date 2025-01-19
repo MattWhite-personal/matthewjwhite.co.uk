@@ -10,7 +10,7 @@ tags:
   - "microsoft"
   - "powershell"
   - "script"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/blog-intune-timezone.png"
 description: "Hello World"
 ---
 

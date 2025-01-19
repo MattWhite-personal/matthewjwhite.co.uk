@@ -11,7 +11,7 @@ tags:
   - "powershell"
   - "scripting"
   - "windows-10"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/blog-intune-tech.png"
 description: "Hello World"
 ---
 

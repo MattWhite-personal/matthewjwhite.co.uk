@@ -7,7 +7,7 @@ categories:
 tags:
   - "juniper"
   - "junos"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/blog-network-header.png"
 description: "Hello World"
 ---
 
