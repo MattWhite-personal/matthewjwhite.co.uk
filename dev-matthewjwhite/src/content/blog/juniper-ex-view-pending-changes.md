@@ -8,7 +8,7 @@ tags:
   - "ex"
   - "juniper"
   - "switch"
-heroImage: "blog-network-header.png"
+heroImage: "/blog-network-header.png"
 description: ""
 ---
 
