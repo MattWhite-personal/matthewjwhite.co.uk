@@ -11,7 +11,7 @@ tags:
   - "opsview"
   - "symantec"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Historical Technote that describes how to check the age of Symantec Endpoint Protection Antivirus definitions and report that data back to a monitoring service such as Nagios or Opsview"
 ---
 
 This morning whilst deploying a modified version of the [Symantec Anti-Virus check](http://www.monitoringexchange.org/inventory/Check-Plugins/Operating-Systems/Windows-NRPE/Symantec-Anti-virus-check) from [MonitoringExchange.org](http://www.monitoringexchange.org) I noticed that on my 64-bit hosts that the check was not returning the correct data and instead of the expected output I was receiving the following error code:

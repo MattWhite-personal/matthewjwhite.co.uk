@@ -11,7 +11,7 @@ tags:
   - "monitoring"
   - "snmp"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Historical technote about the availability of SNMP via ESXi and how to turn it on when it is disabled by default"
 ---
 
 Last night I wrote an article about how to monitor the health of an ESXi server ([link here](http://www.matthewjwhite.co.uk/blog/2010/02/09/monitoring-esxi-server-health-using-nagiosopsview/ "monitoring-esxi-server-health-using-nagiosopsview")) and I wanted to explain a bit more about my findings with SNMP on an ESXi host.

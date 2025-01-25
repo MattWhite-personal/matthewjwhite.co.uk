@@ -10,7 +10,7 @@ tags:
   - "reporting"
   - "script"
 heroImage: "/blog-intune-tech.png"
-description: "Hello World"
+description: "Short Technote on how to use PowerShell to report on when users last changed their password"
 ---
 
 As part of some recent work to assist a client with reporting on their active users and the dates those users last changed their passwords I evolved a script written by Carl Gray here ([PowerShell: Get-ADUser to retrieve password last set and expiry information](http://www.oxfordsbsguy.com/2013/11/25/powershell-get-aduser-to-retrieve-password-last-set-and-expiry-information/)) to generate a short PowerShell script that will report the enabled Active Directory users and the date that they last set their password.

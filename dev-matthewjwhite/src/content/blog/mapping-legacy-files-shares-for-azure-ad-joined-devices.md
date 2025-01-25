@@ -13,7 +13,7 @@ tags:
   - "windows"
   - "windows-10"
 heroImage: "/blog-intune-tech.png"
-description: "Hello World"
+description: "The blog post discusses the challenge of mapping legacy file shares for devices joined to Microsoft Entra ID. As organizations transition to modern IT environments using Azure AD and Microsoft Intune, they often face difficulties in providing access to on-premises file shares. The author describes a solution involving PowerShell scripts to map network drives at user sign-in, addressing the limitations of traditional methods like Group Policy Preferences and login scripts. This approach supports both dedicated and shared devices, ensuring seamless access to legacy file shares while moving towards a modern desktop infrastructur"
 ---
 
 More and more of my customers are moving their devices from a traditional IT model to a Modern Desktop build directly in Azure AD, managing devices via Microsoft Intune rather than Group Policy or System Center Configuration Manager. The move to this modern approach of delivering IT services usually sits alongside of moving the organisation's unstructured file data to OneDrive and SharePoint online which is the logical place to store this data instead of sat on a file server in an office or datacentre.

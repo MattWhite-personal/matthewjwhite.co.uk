@@ -11,7 +11,7 @@ tags:
   - "nrpe"
   - "opsview"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Technote and Visual Basic script to check the live definition version of the E-Trust Antivirus package and when used in conjuction with Windows monitoring toolings in Nagios / Opsview report the age of the definitions and whether that is acceptable or not"
 ---
 
 Following on from my Symantec AV check I have written a first version of a similar check for E-Trust virus definitions. The format and structure to the check is the same as [this check](http://www.matthewjwhite.co.uk/blog/2010/03/01/nagiosopsview-check-symantec-av-definitions/) but it should return the relevant information for Computer Assoicates E-Trust Antivirus product.

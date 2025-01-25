@@ -8,7 +8,7 @@ tags:
   - "endpoint-protection"
   - "symantec"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Technote that describes issues with Symantec Endpoint Protection Manager not protecting the SQL database instance and clearing out historical transaction logs and data."
 ---
 
 Just stated to deploy my first SEP 12.1 implementation for a new client and came across a bug whereby the disk space on the system drive where SEPM had been installed was decreasing rapidly.  Investigation showed that the Endpoint Protection Manager is not configured by default to backup or truncate the log files for its database.

@@ -8,7 +8,7 @@ tags:
   - "juniper"
   - "junos"
 heroImage: "/blog-network-header.png"
-description: "Hello World"
+description: "Short technote that describes how to logout a stale user session on a JunOS device"
 ---
 
 I have been bitten enough times when my ssh session to my JunOS switch or router has been disconnected because it was idle and then when I reconnect get the warning to say that another user is editing the configuration.

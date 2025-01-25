@@ -9,7 +9,7 @@ tags:
   - "routing"
   - "tcp-syn"
 heroImage: "/blog-network-header.png"
-description: ""
+description: "short technote that describes how to ensure that traffic routing across an ASA Series Cisco firewall is not routed asymetrically"
 ---
 
 Last month I installed a new Cisco ASA 5510 for a client and came across an issue where traffic was hitting the "inside" interface of the firewall before travelling back out the same interface and into another router on the internal LAN - an issue as reported in this article [Cisco ASA Deny TCP (no connection)](http://blog.getcaffeinated.net/?p=10 "Cisco ASA Deny TCP (no connection)")

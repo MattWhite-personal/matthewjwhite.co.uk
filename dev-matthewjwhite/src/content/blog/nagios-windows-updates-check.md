@@ -12,7 +12,7 @@ tags:
   - "opsview"
   - "windows-update"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Technote on how to use a VBScript to check the status of pending Windows Updates on a Windows Server and report back to a Nagios/Opsview monitoring instance using NRPE"
 ---
 
 Following on from my post last night about the Windows Updates check on [MonitoringExchange](https://www.monitoringexchange.org/) a colleague reminded me that we acutally modified the script from there as we weren't looking for the names of updates to be listed but simply to get the total number of updates that are outstanding. The modified version of the script is listed below for reference and the source for this is at the following URL: [https://www.monitoringexchange.org/inventory/Check-Plugins/Operating-Systems/Windows-NRPE/Check-Windows-Updates](https://www.monitoringexchange.org/inventory/Check-Plugins/Operating-Systems/Windows-NRPE/Check-Windows-Updates)
