@@ -23,6 +23,8 @@ Initially when we ran RSAutil as one of the admin accounts we received an error
 
 Next we sent a good bit of time running through various commands to work out how we create a new Operations Console admin account. The final command that we needed to run was as follows:
 
-**rsautil manage-oc-administrators -a create -u _UserCreatedEarlier_ -p _PasswordForUserCreatedEarlier_ -g OperationsConsole-Administrators _NewOperationsConsoleUsername NewOperationsConsolePassword_**
+```cmd
+rsautil manage-oc-administrators -a create -u _UserCreatedEarlier_ -p _PasswordForUserCreatedEarlier_ -g OperationsConsole-Administrators _NewOperationsConsoleUsername NewOperationsConsolePassword_
+```
 
 We were now able to login to the Operations Console using the account we created. Now to find another maintenance window to patch the RSA server

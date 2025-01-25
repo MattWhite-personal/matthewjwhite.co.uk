@@ -17,7 +17,7 @@ Having a Single Point of Failure (SPoF) on your network is never a desirable sit
 
 With the Juniper SSG firewalls it is possible to use Policy Based VPNs to maintain multiple tunnels and have the firewalls switch between these as required however you end up with four policies on each firewall and you cannot tell from looking at a routing table where the traffic is flowing. In this instance I decided to make use of OSPF to dynamically route the traffic depending on the availability of the VPNs at each site.
 
-The first thing we need to do in order to implement this is to put each Internet connection into its own Virtual Router so they can run independently of each other.I have covered this in a recent blog post which you can [read here](http://www.matthewjwhite.co.uk/2011/11/07/configuring-juniper-ssg-firewalls-to-failover-between-internet-connections/ "Configuring Juniper SSG Firewalls to failover between Internet connections").
+The first thing we need to do in order to implement this is to put each Internet connection into its own Virtual Router so they can run independently of each other.I have covered this in a recent blog post which you can [read here](/2011/11/07/configuring-juniper-ssg-firewalls-to-failover-between-internet-connections/ "Configuring Juniper SSG Firewalls to failover between Internet connections").
 
 Once you have the two firewalls setup with each Internet connection in its own virtual router we need to setup the VPNs. This is done with a new Zone in the trust-vr and we will need four numbered tunnel interfaces on each firewall.
 
