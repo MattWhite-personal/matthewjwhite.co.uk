@@ -9,7 +9,7 @@ tags:
   - "juniper"
   - "switch"
 heroImage: "/blog-network-header.png"
-description: ""
+description: "Short technote that describes how to compare the pending changes to a JunOS device against the current running configuration"
 ---
 
 When making changes to Juniper EX switches yesterday I wanted to check the changes that I had made to my configuration before committing them. A quick look in the reference manual gave me the following command:

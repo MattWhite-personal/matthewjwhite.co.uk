@@ -9,7 +9,7 @@ tags:
   - "exchange-2010"
   - "symantec"
 heroImage: "/blog-data-backup.png"
-description: ""
+description: "Short technote that looks at how Symantec Backup Exec handles one time backup jobs for Exchange Server"
 ---
 
 I have spent the last few days trying to understand why a successful one time backup hadn't flushed the transaction logs on my client's Exchange 2010 server. We spent a lot of time troubleshooting message queues and looking for a transaction that hadn't completed as the Backup job had reported successful. Digging a bit deeper into some of the job logs I can see that the one-time backup was doing a COPY - Full database and logs and not a FULL - database and flush committed logs.

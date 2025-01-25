@@ -13,7 +13,7 @@ tags:
   - "script"
   - "windows-10"
 heroImage: "/blog-intune-tech.png"
-description: ""
+description: "Conceptual blog post to demonstrate how to download and install applications to an Intune managed device before the Win32App construct was introduced. It uses the PowerShell script execution capability to download the binaries and then execute the installer"
 ---
 
 A lot of my work recently has been working with Microsoft Intune to utilise Microsoft Modern Management constructs and principles to deliver a cloud first approach to provisioning new Windows 10 endpoints for an organisation.

@@ -7,7 +7,7 @@ tags:
   - "password"
   - "rsa"
 heroImage: "/blog-data-backup.png"
-description: ""
+description: "Technote that describes how to recover RSA Authentication Manager during an upgrade if the password is changed"
 ---
 
 Following on from my [article](http://www.matthewjwhite.co.uk/blog/2011/07/18/sa-authentication-manager-sql-bug/ "RSA Authentication Manager SQL bug") on the SQL files bug in RSA Authentication Manager 7.1 we were looking to carry out the upgrade to the client's server in a maintenance window last weekend however the engineer carrying out the work was unable to login to the Operations Manager console to carry out certain parts of the upgrade task.

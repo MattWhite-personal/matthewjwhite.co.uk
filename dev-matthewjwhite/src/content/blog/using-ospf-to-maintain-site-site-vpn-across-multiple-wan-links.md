@@ -10,7 +10,7 @@ tags:
   - "screenos"
   - "vpn"
 heroImage: "/blog-network-header.png"
-description: "Hello World"
+description: "Technote that describes how to use OSPF network protocol to deliver resilience across site to site vpn links on Juniper ScreenOS firewall appliances"
 ---
 
 Having a Single Point of Failure (SPoF) on your network is never a desirable situation and recently I implemented a multi-site set-up where each site had two internet connections and there was a requirement to enable the satellite office to connect to the head office at all times. Each site has a Juniper SSG5-SB firewall as well as a 10Mbit leased line primary Internet circuit and an ADSL backup.

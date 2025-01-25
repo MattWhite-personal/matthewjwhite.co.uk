@@ -11,7 +11,7 @@ tags:
   - "securid"
   - "sid800"
 heroImage: "/blog-data-backup.png"
-description: ""
+description: "Historical observations when dealing with CheckPoint Full Disk Encryption product and RSA SecurID tokens"
 ---
 
 I have spent the past week looking at a peculiar issue with CheckPoint Full Disk Encryption for a client. As a bit of a background all laptops are encrypted with Full Disk Encryption and to provide two factor authentication we are using the RSA SecurID800 which acts as a Smart Card as well as a one time authenticator.

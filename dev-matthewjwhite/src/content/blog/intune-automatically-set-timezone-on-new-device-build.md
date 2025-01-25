@@ -11,7 +11,7 @@ tags:
   - "powershell"
   - "script"
 heroImage: "/blog-intune-timezone.png"
-description: "Hello World"
+description: "Technote that provides a script to discover the geo location of a device enrolling into Intune and use that geo location to map that to a valid timezone and set that on the client device"
 ---
 
 In Michael Niehaus' recent blog on [Configuring Windows 10 defaults via Windows Autopilot using an MSI](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Configuring-Windows-10-defaults-via-Windows-Autopilot-using-an/ba-p/457063) he talked about the ability to set the Time Zone of the device based on a variable in the [Config.xml](https://github.com/mtniehaus/AutopilotBranding/blob/master/AutopilotBranding/Config.xml) file. One of the comments on the blog asked whether it would be possible to set the time zone based on where the device was at the time of setup rather than based on an attribute in the file.

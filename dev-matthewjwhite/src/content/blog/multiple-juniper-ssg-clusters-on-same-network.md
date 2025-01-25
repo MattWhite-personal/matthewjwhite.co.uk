@@ -12,7 +12,7 @@ tags:
   - "routing"
   - "ssg"
 heroImage: "/blog-network-header.png"
-description: ""
+description: "Historical technote that highlights an issue with Juniper ScreenOS clusters on the same network link. The issue is related to how the clusters generate the virtual MAC address"
 ---
 
 I ran into an issue recently with a client where we were seeing a large level of packet loss to their newly installed SSG140 cluster. There were three clients sharing the same 100Mbit Internet circuit and they all connected directly into a pair of [Juniper SRX210](http://www.juniper.net/us/en/products-services/security/srx-series/) routers.

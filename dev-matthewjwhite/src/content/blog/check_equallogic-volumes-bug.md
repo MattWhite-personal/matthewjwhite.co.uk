@@ -12,7 +12,7 @@ tags:
   - "plugin"
   - "snmp"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Technote that demonstrates how to monitor Dell Equallogic storage arrays over SNMP and how to feed that data into a monitoring product such as Nagios or Opsview"
 ---
 
 I have been playing arond with the [check_equallogic](http://www.claudiokuenzler.com/nagios-plugins/check_equallogic.php) Nagios plugin written by Claudio Kuenzler ([http://www.claudiokuenzler.com](http://www.claudiokuenzler.com)) to monitor some performance and utilisation values for a client and I came across a bug with the code in the latest release which I thought I would share.

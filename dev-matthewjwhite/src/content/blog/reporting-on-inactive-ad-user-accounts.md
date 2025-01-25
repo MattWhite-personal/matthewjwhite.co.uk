@@ -10,7 +10,7 @@ tags:
   - "reporting"
   - "script"
 heroImage: "/blog-intune-tech.png"
-description: "Hello World"
+description: "Short technote demonstrating how to use PowerShell to report on inactive user accounts"
 ---
 
 In the second quick article following my reporting requirement this time is to report on the enabled user accounts that have not logged in in the past X days. I took the Search-ADAccount cmdlet and created some filters to exclude disabled accounts as well as enable a parameter to be passed with the script to specify the maximum age, in days, of a user account (default is 90 days)

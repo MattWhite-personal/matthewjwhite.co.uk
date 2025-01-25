@@ -11,7 +11,7 @@ tags:
   - "traceroute"
   - "tracert"
 heroImage: "/blog-monitoring-header.png"
-description: ""
+description: "Short technote that outlines a fix to the code of the Opsivew check_route plugin"
 ---
 
 I was playing around with the check_route plugin and noticed a few issues with it not running. In order to get it to work on my Opsview boxes I had to install a new package, change some settings on the traceroute program and then make a patch in the script itself.

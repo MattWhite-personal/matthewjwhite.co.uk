@@ -12,7 +12,7 @@ tags:
   - "scripting"
   - "windows-10"
 heroImage: "/blog-intune-tech.png"
-description: "Hello World"
+description: "Technote that describes how to package and deploy font files to Intune managed Windows devices using the Win32App packaging construct"
 ---
 
 As part of a recent piece of work deploying a Modern Workplace solution for a customer, I was asked how could we deploy their corporate fonts to all machines so that corporate branding was maintained across documents that were produced in the organisation. Looking online there are several scripts that allow you to deploy an individual font ([Deploying an embedded file (FONT) in a Powershell script through Intune MDM](https://www.lieben.nu/liebensraum/2019/01/deploying-an-embedded-file-font-in-a-powershell-script-through-intune-mdm/)) however I had two font families with a total of 15 fonts that needed to be deployed. Encoding these files into Base64 would hit the limit of the PowerShell scripts that Intune Management Extension could execute so I had to look for an alternative.
