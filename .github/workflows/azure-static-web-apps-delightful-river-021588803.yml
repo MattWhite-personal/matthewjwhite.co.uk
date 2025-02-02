@@ -44,3 +44,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.DEPLOYMENT_TOKEN }}
           action: "close"
+          app_location: "./dev-matthewjwhite" # App source code path
