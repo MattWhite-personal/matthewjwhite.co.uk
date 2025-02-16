@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://dev.matthewjwhite.co.uk',
+	site: 'https://matthewjwhite.co.uk',
 	integrations: [mdx(), sitemap()],
 });
