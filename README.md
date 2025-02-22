@@ -31,30 +31,34 @@ Before you begin, ensure you have the following installed:
 ## Getting Started
 
 1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/MattWhite-personal/matthewjwhite.co.uk.git
-    cd matthewjwhite.co.uk/dev-matthewjwhite
-    ```
+
+   ```sh
+   git clone https://github.com/MattWhite-personal/matthewjwhite.co.uk.git
+   cd matthewjwhite.co.uk/dev-matthewjwhite
+   ```
 
 2. **Install dependencies:**
-    ```sh
-    npm install
-    ```
+
+   ```sh
+   npm install
+   ```
 
 3. **Run the development server:**
-    ```sh
-    npm start
-    ```
+
+   ```sh
+   npm start
+   ```
 
 4. **Build the project for production:**
-    ```sh
-    npm run build
-    ```
+
+   ```sh
+   npm run build
+   ```
 
 5. **Preview the production build:**
-    ```sh
-    npm run preview
-    ```
+   ```sh
+   npm run preview
+   ```
 
 ## Deployment and Maintenance
 
