@@ -7,4 +7,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://matthewjwhite.co.uk',
 	integrations: [mdx(), sitemap()],
+	markdown: {
+		shikiConfig: {
+			wrap: true,
+			theme: 'github-dark-dimmed',
+		}
+	},
 });
