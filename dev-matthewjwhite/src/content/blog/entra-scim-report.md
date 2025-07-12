@@ -184,7 +184,7 @@ foreach ($sp in $sps) {
         $row.ServicePrincipalDisplayName = $sp.DisplayName
         $row.Job = "SCIM is configured"
         $reportTable.Rows.Add($row)
-        
+
         $job | Select-Object @{Name='ServicePrincipalId'; Expression={$sp.Id}}, @{Name='ServicePrincipalDisplayName'; Expression={$sp.DisplayName}}, JobType, Status, CreatedDateTime, LastModifiedDateTime
     } else {
         Write-Host "No SCIM synchronization job found for Service Principal: $($sp.DisplayName) ($($sp.Id))"
