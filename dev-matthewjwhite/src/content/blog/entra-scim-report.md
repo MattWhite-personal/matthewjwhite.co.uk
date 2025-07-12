@@ -113,7 +113,7 @@ if ($reportAll) {
 
 Bringing this all together into a single script I now have
 
-```powershell
+```powershell showLineNumbers
 <#
     .SYNOPSIS
     This script generates a report of Entra ID Service Principals with their SCIM synchronization job status.
