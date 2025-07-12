@@ -15,6 +15,6 @@ export default defineConfig({
 		//	theme: 'github-dark-dimmed',
 		//}
 		syntaxHighlight: false,
-    	rehypePlugins: [[rehypePrettyCode, { theme: "github-dark" }]],
+    	rehypePlugins: [[rehypePrettyCode, { theme: "github-light" }]],
 	},
 });
