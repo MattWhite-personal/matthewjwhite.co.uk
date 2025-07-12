@@ -39,7 +39,7 @@ The Script will:
 The connection to Microsoft Graph is simple and we call in the required scopes that we need for the report.
 
 ```powershell
-Connect-MgGraph -scopes "Application.Read.All", "Synchronization.Read.All"
+Connect-MgGraph -Scopes "Synchronization.Read.All", "Application.Read.All"
 ```
 
 If you haven't previously used the permissions against MS Graph you will be prompted to provide an appropriate administrative account to consent to the Graph Permissions.
@@ -140,14 +140,16 @@ param(
     [bool]$reportAll = $false
 )
 # Ensure the Microsoft Graph PowerShell module is installed
-if (-not (Get-Module -ListAvailable -Name Microsoft.Graph)) {
+try {
+    Import-Module -Name Microsoft.Graph.Authentication, Microsoft.Graph.Applications -ErrorAction Stop
+} catch {
     Write-Error "Microsoft Graph PowerShell module is not installed. Please install it using 'Install-Module Microsoft.Graph'."
     exit 1
 }
 
 # Connect to Microsoft Graph
 try {
-    Connect-MgGraph -Scopes "ServicePrincipal.Read.All", "Directory.Read.All"
+    Connect-MgGraph -Scopes "Synchronization.Read.All", "Application.Read.All"
 } catch {
     Write-Error "Failed to connect to Microsoft Graph. Please ensure you have the necessary permissions."
     exit 1
@@ -159,9 +161,9 @@ if (-not (Test-Path -Path (Split-Path -Path $exportPath -Parent))) {
 }
 # Initialize the report table
 $reportTable = New-Object System.Data.DataTable
-$reportTable.Columns.Add("ServicePrincipalId", [string])
-$reportTable.Columns.Add("ServicePrincipalDisplayName", [string])
-$reportTable.Columns.Add("JobType", [string])
+$reportTable.Columns.Add("ServicePrincipalId", [string]) | Out-Null
+$reportTable.Columns.Add("ServicePrincipalDisplayName", [string]) | Out-Null
+$reportTable.Columns.Add("Job", [string]) | Out-Null
 
 # Get all Service Principals
 try {
@@ -173,16 +175,19 @@ try {
 
 # Check each Service Principal for SCIM synchronization jobs
 foreach ($sp in $sps) {
+    Write-Host "Checking Service Principal: $($sp.DisplayName) ($($sp.Id))"
     $job = Get-MgServicePrincipalSynchronizationJob -ServicePrincipalId $sp.Id -ErrorAction SilentlyContinue
     if ($job) {
+        Write-Host "Found SCIM synchronization job for Service Principal: $($sp.DisplayName) ($($sp.Id))"
         $row = $reportTable.NewRow()
         $row.ServicePrincipalId = $sp.Id
         $row.ServicePrincipalDisplayName = $sp.DisplayName
         $row.Job = "SCIM is configured"
         $reportTable.Rows.Add($row)
-
+        
         $job | Select-Object @{Name='ServicePrincipalId'; Expression={$sp.Id}}, @{Name='ServicePrincipalDisplayName'; Expression={$sp.DisplayName}}, JobType, Status, CreatedDateTime, LastModifiedDateTime
     } else {
+        Write-Host "No SCIM synchronization job found for Service Principal: $($sp.DisplayName) ($($sp.Id))"
         if ($reportAll) {
             $row = $reportTable.NewRow()
             $row.ServicePrincipalId = $sp.Id
