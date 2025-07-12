@@ -8,9 +8,10 @@ export default defineConfig({
 	site: 'https://matthewjwhite.co.uk',
 	integrations: [mdx(), sitemap()],
 	markdown: {
-		shikiConfig: {
-			wrap: true,
-			theme: 'github-dark-dimmed',
-		}
+		syntaxHighlight: 'prism',
+	//	shikiConfig: {
+	//		wrap: true,
+	//		theme: 'github-dark-dimmed',
+	//	}
 	},
 });
