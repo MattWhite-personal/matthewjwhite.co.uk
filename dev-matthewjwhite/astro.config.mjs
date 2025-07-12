@@ -10,11 +10,11 @@ export default defineConfig({
 	integrations: [mdx(), sitemap()],
 	markdown: {
 		//syntaxHighlight: 'prism',
-		//shikiConfig: {
-		//	wrap: true,
-		//	theme: 'github-dark-dimmed',
-		//}
-		syntaxHighlight: false,
-    	rehypePlugins: [[rehypePrettyCode, { theme: "github-light" }]],
+		shikiConfig: {
+			wrap: true,
+			theme: 'github-dark-dimmed',
+		}
+		//syntaxHighlight: false,
+    	//rehypePlugins: [[rehypePrettyCode, { theme: "github-light" }]],
 	},
 });
