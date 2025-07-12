@@ -1,6 +1,6 @@
 ---
 title: "Reporting on Entra Enterprise Apps that are enabled for Provisioning"
-pubDate: "2025-04-21"
+pubDate: "2025-07-12"
 categories:
   - "infrastructure"
 tags:
