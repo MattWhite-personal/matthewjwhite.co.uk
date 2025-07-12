@@ -11,18 +11,23 @@ tags:
 heroImage: "/blog-terraform-dns.png"
 description: "Using Microsoft Graph to iterate through Enterprise Applications in an Entra ID tenant and identifying those that have SCIM Provisioning enabled"
 ---
+
 # Overview
+
 I recently had a requirement to look at how many Entra integrated apps were configured to provision users into them. [Entra ID Provisioning](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/user-provisioning) allows for the automated and manual lifecycle management of users using [SCIM](https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management). Automating these activities via SCIM can significantly reduce the effort to setup users in the external applications but, more importantly, linking the account activities in the application back to your core Identity service ensures that only valid and active users have access to that service.
 
-I expected there would be a native view in Entra to show these but alas there doesn't appear to be a native function. Instead I looked at ways to do this using Microsoft Graph and produce a report into a CSV file. 
+I expected there would be a native view in Entra to show these but alas there doesn't appear to be a native function. Instead I looked at ways to do this using Microsoft Graph and produce a report into a CSV file.
 
 # Graph Endpoints and Permissions
+
 Turning to Merill Fernando's [Graph Permissions](https://graphpermissions.merill.net/) site to look for Syncrhonization endpoints I can see that `Synchronization.Read.All` will provide access to [SyncronizationJobs](https://graphpermissions.merill.net/permission/Synchronization.Read.All?tabs=apiv1%2CsynchronizationJob1). The full API endpoint is `GET /servicePrincipals/{id}/synchronization/jobs/` with `{id}` being the ID of an existing Service Principal which will require calling the `GET /servicePrincipals` to list all Applications before iterating through these to see those that have a Synchronization Job.
 
 # Scripting the report
+
 Now that I know what needs to be queried I need to build a script to capture the data and produce a CSV output that can be shared with other teams. This will be using the Microsoft.Graph PowerShell modules, the installation of which is outside the scope of the blog post.
 
 The Script will:
+
 1. Connect to Microsoft Graph with the required permissions
 2. Get all Service Principals in the connected tenant
 3. Check if the Service Principal has a Synchronization Job defined
@@ -30,7 +35,8 @@ The Script will:
 5. (optional) Produce a list of all Service Principals regardless of whether there is a job or not and output all to CSV
 
 ## Connecting to Microsoft Graph
-The connection to Microsoft Graph is simple and we call in the required scopes that we need for the report. 
+
+The connection to Microsoft Graph is simple and we call in the required scopes that we need for the report.
 
 ```powershell
 Connect-MgGraph -scopes "Application.Read.All", "Synchronization.Read.All"
@@ -39,6 +45,7 @@ Connect-MgGraph -scopes "Application.Read.All", "Synchronization.Read.All"
 If you haven't previously used the permissions against MS Graph you will be prompted to provide an appropriate administrative account to consent to the Graph Permissions.
 
 ## Get all Service Principals
+
 Gathering all the Service Principals in the tenant is easily handled by the [Get-MgServicePrincipal](https://learn.microsoft.com/en-gb/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?view=graph-powershell-1.0) cmdlet. By default the cmdlet will only bring the first page of Graph results back. To ensure that all applications are captured you must pass in the `-all` attribute. I also sort the list by DisplayName to support the reading of the output
 
 ```powershell
@@ -46,6 +53,7 @@ $sps = get-MgServicePrincipal -All | Sort-Object DisplayName
 ```
 
 ## Check if the Service Principal has a Synchronization Job
+
 Now that all the Service Principals are captured into a PowerShell object we must iterate through the list and find if there any Synchronization Jobs
 
 ```powershell
@@ -59,7 +67,8 @@ foreach ($sp in $sps) {
 }
 ```
 
-## Create the Report 
+## Create the Report
+
 With the iteration of each Service Principal we now have a list of each of the jobs so lets build a report. I am a big fan of the DataTable construct as I can define my structure and then add multiple rows which can then be filtered and sorted.
 
 ```powershell
@@ -87,6 +96,7 @@ $reportTable | Export-Csv -NoTypeInformation -Path $reportPath
 ```
 
 ### Optional report on all Service Principals
+
 If we want to report on all rows we can repeat the $row code in the `else` section of the previous section but modify the `$row.job` entry but we need to consider this as a conditional output so the code looks like. This checks for a $reportAll variable earlier in the script and if it's true creates additional rows
 
 ```powershell
@@ -100,6 +110,7 @@ if ($reportAll) {
 ```
 
 # The Whole Script
+
 Bringing this all together into a single script I now have
 
 ```powershell
@@ -169,7 +180,7 @@ foreach ($sp in $sps) {
         $row.ServicePrincipalDisplayName = $sp.DisplayName
         $row.Job = "SCIM is configured"
         $reportTable.Rows.Add($row)
-        
+
         $job | Select-Object @{Name='ServicePrincipalId'; Expression={$sp.Id}}, @{Name='ServicePrincipalDisplayName'; Expression={$sp.DisplayName}}, JobType, Status, CreatedDateTime, LastModifiedDateTime
     } else {
         if ($reportAll) {
