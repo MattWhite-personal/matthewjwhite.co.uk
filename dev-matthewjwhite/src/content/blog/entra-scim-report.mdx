@@ -183,8 +183,9 @@ foreach ($sp in $sps) {
         $row.ServicePrincipalId = $sp.Id
         $row.ServicePrincipalDisplayName = $sp.DisplayName
         $row.Job = "SCIM is configured"
-        $reportTable.Rows.Add($row)di
-    } else {
+        $reportTable.Rows.Add($row)
+    }
+    else {
         Write-Host "No SCIM synchronization job found for Service Principal: $($sp.DisplayName) ($($sp.Id))"
         if ($reportAll) {
             $row = $reportTable.NewRow()
