@@ -214,4 +214,5 @@ pre code .line::before {
 	content: counter(step);
 	counter-increment: step;
 	color: rgba(115, 138, 148, 0.4);
+	padding-right: 15px;
 }
