@@ -192,17 +192,26 @@ hr {
 	font-size: 1.15em;
 	background-color: #F8FCFD;
 }
-code {
-  counter-reset: step;
-  counter-increment: step 0;
+
+pre {
+	@apply rounded-md pl-8;
 }
 
-code .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 1rem;
-  margin-right: 1.5rem;
-  display: inline-block;
-  text-align: right;
-  color: rgba(115,138,148,.4)
+pre code {
+	@apply block leading-tight p-2 pl-1;
+	font-size: 17px;
+	border-left: 1px solid rgba(115, 138, 148, 0.4);
+	counter-reset: step;
+	counter-increment: step 0;
+}
+
+pre code .line {
+	@apply relative;
+}
+
+pre code .line::before {
+	@apply absolute overflow-hidden w-7 h-4 -left-9 top-0 text-right;
+	content: counter(step);
+	counter-increment: step;
+	color: rgba(115, 138, 148, 0.4);
 }
