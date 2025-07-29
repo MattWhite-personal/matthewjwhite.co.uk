@@ -12,7 +12,7 @@ export default defineConfig({
 		//syntaxHighlight: 'prism',
 		shikiConfig: {
 			wrap: true,
-			theme: 'github-dark-dimmed',
+			theme: 'slack-dark',
 		}
 		//syntaxHighlight: false,
     	//rehypePlugins: [[rehypePrettyCode, { theme: "github-light" }]],
