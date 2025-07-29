@@ -212,6 +212,6 @@ pre code .line::before {
 	@apply absolute overflow-hidden w-7 h-4 -left-9 top-0 text-right;
 	content: counter(step);
 	counter-increment: step;
-	color: rgba(115, 138, 148, 0.4);
+	color: rgb(var(--grey-light));
 	padding-right: 15px;
 }
