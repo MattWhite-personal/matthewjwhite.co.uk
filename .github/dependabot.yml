@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/dev-matthewjwhite/" # Dev Test website work
+  - package-ecosystem: "npm"
+    directory: "/dev-matthewjwhite/"
     schedule:
       interval: daily
     assignees:
@@ -17,6 +17,15 @@ updates:
     directory: /
     schedule:
       interval: daily
+    assignees:
+      - "MattWhite-personal"
+    commit-message:
+      prefix: ":dependabot: "
+  - package-ecosystem: "terraform"
+    directory: "/terraform"
+    schedule:
+      interval: "daily"
+      time: "15:00"
     assignees:
       - "MattWhite-personal"
     commit-message:
