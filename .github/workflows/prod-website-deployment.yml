@@ -31,7 +31,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         run: |
           echo "🔧 Using staticwebapp.config.preview.json for PR environment..."
-          cp ./dev-matthewjwhite/staticwebapp.config.preview.json ./dev-matthewjwhite/staticwebapp.config.json
+          cp ./static-web-app/staticwebapp.config.preview.json ./static-web-app/staticwebapp.config.json
           echo "✅ Preview config applied."
       - name: Build And Deploy
         id: builddeploy
@@ -42,7 +42,7 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./dev-matthewjwhite" # App source code path
+          app_location: "./static-web-app" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "/dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
@@ -60,4 +60,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.PROD_SWA_TOKEN }}
           action: "close"
-          app_location: "./dev-matthewjwhite" # App source code path
+          app_location: "./static-web-app" # App source code path
