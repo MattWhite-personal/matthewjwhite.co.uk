@@ -4,5 +4,19 @@
       "rewrite": "/404",
       "statusCode": 404
     }
+  },
+  "networking": {
+    "allowedIpRanges": [
+      "AzureFrontDoor.Backend"
+    ]
+  },
+  "forwardingGateway": {
+    "requiredHeaders": {
+      "X-Azure-FDID": "952f31a7-c18a-4950-a6ee-eed206da6e1a"
+    },
+    "allowedForwardedHosts": [
+      "afd-ep-dev-matthewjwhite-co-uk-dbazdzdredbdc6d2.z02.azurefd.net",
+      "matthewjwhite.co.uk"
+    ]
   }
 }
