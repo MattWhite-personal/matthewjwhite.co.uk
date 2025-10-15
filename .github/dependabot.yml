@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/dev-matthewjwhite/"
+    directory: "/static-web-app"
     schedule:
       interval: daily
     assignees:

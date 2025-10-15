@@ -5,13 +5,13 @@ on:
     branches:
       - main
     paths:
-      - "dev-matthewjwhite/**"
+      - "static-web-app/**"
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
     paths:
-      - "dev-matthewjwhite/**"
+      - "static-web-app/**"
 
 jobs:
   build_and_deploy_job:
