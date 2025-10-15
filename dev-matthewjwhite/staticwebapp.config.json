@@ -3,6 +3,10 @@
     "404": {
       "rewrite": "/404",
       "statusCode": 404
+    },
+    "403": {
+      "rewrite": "/403",
+      "statusCode": 403
     }
   },
   "networking": {
