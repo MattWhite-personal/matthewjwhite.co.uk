@@ -5,7 +5,7 @@
       "statusCode": 404
     },
     "403": {
-      "rewrite": "/403",
+      "rewrite": "/403/index.html",
       "statusCode": 403
     }
   },
