@@ -23,3 +23,13 @@ output "dev-mjw-dnsauth" {
 output "dev-mjw-cdn-endpoint" {
   value = azurerm_cdn_frontdoor_endpoint.dev-matthewjwhite-co-uk.host_name
 }
+
+output "mjw-dnsauth" {
+  value     = azurerm_cdn_frontdoor_custom_domain.matthewjwhite-co-uk.validation_token
+  sensitive = true
+}
+
+output "mjw-cdn-endpoint" {
+  value     = azurerm_cdn_frontdoor_endpoint.matthewjwhite-co-uk.id
+  sensitive = true
+}
