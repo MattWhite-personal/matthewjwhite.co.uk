@@ -57,7 +57,7 @@ resource "azurerm_cdn_frontdoor_route" "dev-matthewjwhite-co-uk" {
 resource "azurerm_cdn_frontdoor_custom_domain" "dev-matthewjwhite-co-uk" {
   name                     = "afd-cd-dev-matthewjwhite-co-uk"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.afd-whitefam.id
-  host_name                = azurerm_dns_zone.tftest-mjw.name
+  host_name                = "dev.${data.azurerm_dns_zone.matthewjwhite-co-uk.name}"
 
   tls {
     certificate_type = "ManagedCertificate"
