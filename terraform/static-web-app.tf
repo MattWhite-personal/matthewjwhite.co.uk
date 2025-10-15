@@ -32,10 +32,10 @@ resource "azurerm_cdn_frontdoor_origin" "matthewjwhite-co-uk" {
   cdn_frontdoor_origin_group_id  = azurerm_cdn_frontdoor_origin_group.matthewjwhite-co-uk.id
   enabled                        = true
   certificate_name_check_enabled = false
-  host_name                      = azurerm_static_web_app.matthewjwhite-dev.default_host_name
+  host_name                      = azurerm_static_web_app.matthewjwhite-co-uk.default_host_name
   http_port                      = 80
   https_port                     = 443
-  origin_host_header             = azurerm_static_web_app.matthewjwhite-dev.default_host_name
+  origin_host_header             = azurerm_static_web_app.matthewjwhite-co-uk.default_host_name
   priority                       = 1
   weight                         = 1
 }
