@@ -28,3 +28,10 @@ output "mjw-cdn-endpoint" {
   value     = azurerm_cdn_frontdoor_endpoint.matthewjwhite-co-uk.id
   sensitive = true
 }
+
+output "afd-resource-group" {
+  value = azurerm_cdn_frontdoor_profile.afd-whitefam.resource_group_name
+}
+output "whitefam-afd" {
+  value = azurerm_cdn_frontdoor_profile.afd-whitefam.name
+}
