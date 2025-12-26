@@ -1,4 +1,4 @@
-name: Production Website CI/CD Build and Deploy
+﻿name: Production Website CI/CD Build and Deploy
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
       pages: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           submodules: true
           lfs: false
@@ -35,7 +35,7 @@ jobs:
           echo "✅ Preview config applied."
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.PROD_SWA_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -56,8 +56,9 @@ jobs:
     steps:
       - name: Close Pull Request
         id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.PROD_SWA_TOKEN }}
           action: "close"
           app_location: "./static-web-app" # App source code path
+
