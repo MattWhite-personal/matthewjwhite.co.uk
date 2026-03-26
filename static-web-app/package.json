@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "5.0.2",
-    "@astrojs/rss": "4.0.17",
+    "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.1",
     "astro": "6.0.8",
     "rehype-pretty-code": "0.14.3"
