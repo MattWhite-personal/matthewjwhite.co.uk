@@ -7,11 +7,15 @@ on:
     paths:
       - "static-web-app/**"
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
     branches:
       - main
     paths:
       - "static-web-app/**"
+  pull_request_target: :
+    types: [closed]
+    branches:
+      - main
 
 jobs:
   build_and_deploy_job:
