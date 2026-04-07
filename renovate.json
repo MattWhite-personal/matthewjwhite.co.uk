@@ -33,7 +33,7 @@
       "description": "Require manual aproval - Astro major updates",
       "matchManagers": ["npm"],
       "matchPackagePatterns": ["^astro", "^@astrojs/"],
-      "matchUpdateTypes": ["major"]
+      "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
     {
