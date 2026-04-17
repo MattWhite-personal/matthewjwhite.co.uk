@@ -29,6 +29,16 @@ output "mjw-cdn-endpoint" {
   sensitive = true
 }
 
+output "files-afd-endpoint" {
+  value     = azurerm_cdn_frontdoor_endpoint.files-mattandjen-co-uk.id
+  sensitive = true
+}
+
+output "files-dnsauth" {
+  value     = azurerm_cdn_frontdoor_custom_domain.files-mattandjen-co-uk.validation_token
+  sensitive = true
+}
+
 output "afd-resource-group" {
   value = azurerm_cdn_frontdoor_profile.afd-whitefam.resource_group_name
 }
