@@ -1,0 +1,19 @@
+---
+import { calculateReadingTime } from '../utils/readingTime';
+
+interface Props {}
+
+const html = await Astro.slots.render('default');
+const { minutes, words } = calculateReadingTime(html);
+---
+
+<span class="reading-time" title={`${words} words`}>{minutes} min read</span>
+
+<style>
+	.reading-time {
+		color: rgb(var(--gray));
+		font-size: 0.95em;
+		cursor: help;
+		border-bottom: 1px dotted rgb(var(--gray));
+	}
+</style>
