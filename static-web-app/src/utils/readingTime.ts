@@ -7,8 +7,13 @@ export interface ReadingTimeResult {
  * Strip markdown and HTML syntax from text to get plain text
  */
 function stripMarkdown(text: string): string {
-	// Remove HTML tags
-	let stripped = text.replace(/<[^>]*>/g, '');
+	// Remove HTML tags (repeat until stable to avoid incomplete multi-character sanitization)
+	let stripped = text;
+	let previous: string;
+	do {
+		previous = stripped;
+		stripped = stripped.replace(/<[^>]*>/g, '');
+	} while (stripped !== previous);
 	
 	// Remove markdown links [text](url)
 	stripped = stripped.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
