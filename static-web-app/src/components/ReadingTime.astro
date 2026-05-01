@@ -1,0 +1,21 @@
+---
+import { calculateReadingTime } from '../utils/readingTime';
+
+interface Props {
+	content: string;
+}
+
+const { content } = Astro.props;
+const { minutes, words } = calculateReadingTime(content);
+---
+
+<span class="reading-time" title={`${words} words">{minutes} min read</span>
+
+<style>
+	.reading-time {
+		color: rgb(var(--gray));
+		font-size: 0.95em;
+		cursor: help;
+		border-bottom: 1px dotted rgb(var(--gray));
+	}
+</style>
