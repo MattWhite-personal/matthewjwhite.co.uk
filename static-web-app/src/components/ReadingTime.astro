@@ -9,7 +9,7 @@ const { content } = Astro.props;
 const { minutes, words } = calculateReadingTime(content);
 ---
 
-<span class="reading-time" title={`${words} words">{minutes} min read</span>
+<span class="reading-time" title={`${words} words`}>{minutes} min read</span>
 
 <style>
 	.reading-time {
