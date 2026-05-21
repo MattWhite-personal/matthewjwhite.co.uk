@@ -62,7 +62,11 @@ resource "azurerm_cdn_frontdoor_custom_domain" "dev-matthewjwhite-co-uk" {
   tls {
     certificate_type = "ManagedCertificate"
     cipher_suite {
-      type = "TLS12_2023"
+      type = "Customized"
+      custom_ciphers {
+        tls12 = ["DHE_RSA_AES128_GCM_SHA256", "DHE_RSA_AES256_GCM_SHA384", "ECDHE_RSA_AES128_GCM_SHA256","ECDHE_RSA_AES256_GCM_SHA384"]
+        tls13 = ["TLS_AES_128_GCM_SHA256", "TLS_AES_256_GCM_SHA384"]
+      }
     }
   }
 }
