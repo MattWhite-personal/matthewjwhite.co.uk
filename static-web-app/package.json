@@ -2,7 +2,7 @@
   "name": "dev-matthewjwhite",
   "type": "module",
   "version": "0.0.1",
-   "engines": {
+  "engines": {
     "node": "^24.22.2"
   },
   "scripts": {
